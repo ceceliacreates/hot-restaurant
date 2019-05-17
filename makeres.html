@@ -20,23 +20,30 @@
       <h1>Make Reservation</h1>
     </header>
     <div class="jumbotron">
-      <form>
+      <form action="/api/tables" method="POST">
         <div class="form-row">
           <div class="col">
-            <input type="text" class="form-control" placeholder="First name" />
+            <input name="fname" type="text" class="form-control" placeholder="First name" />
           </div>
           <div class="col">
-            <input type="text" class="form-control" placeholder="Last name" />
+            <input name="lname" type="text" class="form-control" placeholder="Last name" />
           </div>
           <div class="col">
             <input
+            name="phone"
               type="text"
               class="form-control"
               placeholder="Phone Number"
             />
           </div>
           <div class="col">
-            <input type="text" class="form-control" placeholder="Email" />
+            <input name="email" type="text" class="form-control" placeholder="Email" />
+          </div>
+          <div class="col">
+            <input name="table" type="text" class="form-control" placeholder="Table Number"/>
+          </div>
+          <div class="col">
+            <input type="submit" value="Submit">
           </div>
         </div>
       </form>
