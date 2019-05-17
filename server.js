@@ -29,7 +29,13 @@ app.get("/make", function(req,res) {
 app.get("/tables", function(req,res) {
     res.sendFile(path.join(___dirname, "tables.html"));
 });
-app.post("/tables", function(req,res) {
+app.get("/api/reservations", function (req, res) {
+    res.json(reservations)
+};
+app.get("/api/waitinglist", function(req,res) {
+    res.json(waitinglist)
+})
+app.post("/api/tables", function(req,res) {
     const newReservation = req.body;
     console.log(newReservation);
     if (reservations.length >= 5) {
