@@ -23,7 +23,35 @@
             </ul>
     </div>
     <script type="text/javascript">
-    
+      $.get("/api/reservations", function(data){
+        
+          for(let i = 0; i < data.length; i++){
+
+            var listGroupItem = $("<li class = 'list-group-item'>");
+            console.log(data[i]);
+
+            listGroupItem.append($("<h2>").text("Name: " + data[i].fname + " " + data[i].lname));
+            listGroupItem.append($("<h2>").text("Email: " + data[i].email));
+            listGroupItem.append($("<h2>").text("Phone: " + data[i].phone));
+            listGroupItem.append($("<h2>").text("Table: " + data[i].table));
+
+            $("#bookedTables").append(listGroupItem);
+          }
+      });
+
+      $.get("/api/waitinglist", function(data){
+          for(let i = 0; i < data.length; i++){
+            console.log(data[i]);
+            var listGroupItem = $("<li class = 'list-group-item'>");
+
+            listGroupItem.append($("<h2>").text("Name: " + data[i].fname + " " + data[i].lname));
+            listGroupItem.append($("<h2>").text("Email: " + data[i].email));
+            listGroupItem.append($("<h2>").text("Phone: " + data[i].phone));
+            listGroupItem.append($("<h2>").text("Table: " + data[i].table));
+
+            $("#waitingList").append(listGroupItem);
+          }
+      });
     </script>
   </body>
 </html>

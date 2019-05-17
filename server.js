@@ -35,7 +35,7 @@ app.get("/api/reservations", function (req, res) {
     res.json(reservations)
 });
 app.get("/api/waitinglist", function(req,res) {
-    res.json(waitinglist)
+    res.json(waitingList)
 })
 app.post("/api/tables", function(req,res) {
     const newReservation = req.body;
@@ -46,10 +46,11 @@ app.post("/api/tables", function(req,res) {
     else {
         reservations.push(newReservation);
     }
-    res.end();
+    res.redirect("/")
 });
 app.post("/cleartables", function(req, res) {
     reservations = [];
+    waitingList = []
 });
 
 app.listen(PORT, function() {
